@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Movie page</title>
+</head>
+
+<body>
+  <style type="text/css">
+
+  </style>
+  <div class="geolocation">
+    <span id="text"></span>
+  </div>
+  <script>
+  const textElm = document.getElementById('text');
+
+  window.addEventListener('deviceorientation', deviceorientationHandler);
+  // ジャイロセンサーの値が変化
+  function deviceorientationHandler(event) {
+    console.log(event)
+    // X軸
+    var beta = event.beta;
+    // Y軸
+    var gamma = event.gamma;
+    // Z軸
+    var alpha = event.alpha;
+
+    textElm.textContent = `
+      beta: ${beta}\n
+      gamma: ${gamma}\n
+      alpha: ${alpha}\n
+    `;
+  }
+  </script>
+</body>
+
+</html>
