@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Movie page</title>
+</head>
+
+<body>
+  <style type="text/css">
+ 
+  </style>
+
+  <div class="geolocation">
+    <span id="text"></span>
+  </div>
+  
+  <script>
+    const textElm = document.getElementById('text');
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        textElm.textContent = `${position.coords.latitude} ${position.coords.longitude}`;
+      })
+    }
+  </script>
+</body>
+
+</html>
